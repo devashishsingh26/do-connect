@@ -1,0 +1,120 @@
+@mixin font-style(
+  $family: Roboto,
+  $size: 12px,
+  $weight: 500,
+  $line-height: 32,
+  $font-color: black,
+  $letter-spacing: normal
+) {
+  font-family: $family !important;
+  font-size: $size !important;
+  font-weight: $weight !important;
+  line-height: $line-height !important;
+  color: $font-color !important;
+  letter-spacing: $letter-spacing !important;
+}
+
+.global-text {
+  font-size: 12px;
+  font-family: Roboto;
+
+  &--body {
+    @include font-style(Roboto, 14px, normal, 20px, #777778, 0.4px);
+  }
+
+  &--body-1 {
+    @include font-style(Roboto, 16px, normal, 24px, #000000, 0.5px);
+  }
+
+  &--title {
+    @include font-style(Roboto, 6vh, normal, 40px, #1d262d, 0.25px);
+  }
+
+  &--heading-4 {
+    @include font-style(Roboto, 34px, normal, 40px, #000000, 0.25px);
+  }
+
+  &--heading-1 {
+    @include font-style(Roboto, 20px, normal, 32px, #1d262d, 0.25px);
+  }
+
+  &--subtitle {
+    @include font-style(Roboto, 14px, normal, 20px, #1d262d, 0.25px);
+  }
+
+  &--subtitle-1 {
+    @include font-style(Roboto, 12px, normal, 20px, #1d262d, 0.4px);
+  }
+
+  &--subtitle-2 {
+    @include font-style(Roboto, 12px, normal, 20px, #85929c, 0.4px);
+  }
+
+  &--small {
+    @include font-style(Roboto, 10px, normal, 16px, #85929c, 0.15px);
+  }
+
+  &--small-1 {
+    @include font-style(Roboto, 10px, normal, 20px, #ffffff);
+  }
+
+  &--label {
+    @include font-style(Roboto, 16px, normal, 24px, #1d262d, 0.5px);
+  }
+
+  &--label-1 {
+    @include font-style(Roboto, 16px, normal, 24px, #85929c, 0.5px);
+  }
+
+  &--table-header {
+    @include font-style(Roboto, 12px, bold, 20px, #757575, 0.4px);
+  }
+
+  &--ellipsis {
+    text-overflow: ellipsis;
+  }
+}
+
+.flex {
+  display: flex;
+
+  &--column {
+    flex-direction: column;
+  }
+
+  &--row {
+    flex-direction: row;
+  }
+
+  &--space-between {
+    justify-content: space-between;
+  }
+
+  &--space-around {
+    justify-content: space-around;
+  }
+
+  &--space-evenly {
+    justify-content: space-evenly;
+  }
+
+  &--align-center {
+    align-items: center;
+  }
+
+  &--align-end {
+    align-items: end;
+  }
+}
+
+.high {
+  background: #dc3545;
+}
+
+.medium {
+  background: #ebaa02;
+}
+
+.low {
+  background: #28a745;
+}

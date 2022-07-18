@@ -1,0 +1,15 @@
+<mat-toolbar class="header-container">
+    <div class="search-bar">
+        <mat-icon *ngIf="showSearchBar" class="search-icon">search</mat-icon>
+        <mat-form-field *ngIf="showSearchBar" class="search-input">
+            <input type="text" matInput placeholder="Search" />
+        </mat-form-field>
+    </div>
+    <div class="profile flex flex--space-evenly flex--align-end">
+        <span class="text">{{username}}</span>
+        <button style = "margin-bottom:10px ;" (click)="logOut()" mat-button style="align-items: centre;" >
+            Logout
+        </button>
+        
+    </div>
+</mat-toolbar>

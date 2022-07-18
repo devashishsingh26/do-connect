@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<section class="main-container">
+    <form>
+        <label style="font-size: 30px;" for="question">Ask Question:</label><br><br>
+        <input style="width: 100%;font-size: larger;" type="text" id="question" name="question" [(ngModel)]="question.question" ><br>
+       <br>
+        <button (click)="askQuestoin()">Submit</button>
+    </form>
+    <br>
+    <br>
+    <br>
+</section>
+
+<section class="main-container">
+
+    <div class="flex flex--column" *ngFor="let item of questionList">
+        <!-- <h4 class="global-text--table-header table-header">
+            {{ item.name | uppercase }}
+        </h4> -->
+        <div *ngIf="item.issues.length === 0" class="empty-container"></div>
+        <div *ngFor="let issue of item.issues" class="table-columns">
+            <app-card [content]="issue"></app-card> <button *ngIf="roleADMIN()" (click) = "approveQuestion(issue.id)" >Approve</button>
+            <button style="margin-left: 10px;" *ngIf="roleADMIN()" (click)="deleteQuestion(issue.id)">Delete</button>
+            <button style="margin-left: 10px;" *ngIf="roleADMIN()" (click)="updateQuestionStatus(issue.id)">Update</button>
+
+
+
+            <br>
+            <br><br><br>
+        </div>
+
+    </div>
+    
+
+</section>
+
+        <section *ngIf="isUpdate" class="main-container">
+            <form>
+                <label style="font-size: 10px;" for="question">Update Question:</label><br><br>
+                <input style="width: 100%;font-size: larger;" type="text" id="updatequestion" name="updatequestion"
+                    [(ngModel)]="updatequestion.question"><br>
+                <br>
+                <button (click)="updateQuestion()">Update</button>
+            </form>
+            <br>
+            <br>
+            <br>
+        </section>
+
+

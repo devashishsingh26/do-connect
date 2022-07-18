@@ -1,0 +1,7 @@
+<button mat-button [disabled]="disabled" class="custom-button" [ngClass]="{
+    'primary-btn': btnType === 'primary',
+    'secondary-btn': btnType === 'secondary',
+    disabled: disabled
+  }" (click)="onBtnClick()">
+    {{ text | uppercase }}
+</button>

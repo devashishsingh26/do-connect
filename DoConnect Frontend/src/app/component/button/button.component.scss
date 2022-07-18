@@ -1,0 +1,30 @@
+:host {
+    .custom-button {
+        width: 160px;
+        height: 44px;
+        border-radius: 4px;
+        font-family: Roboto;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 36px;
+        text-align: center;
+        letter-spacing: 1.25px;
+        cursor: pointer;
+    }
+
+    .primary-btn {
+        background: #1d262d;
+        color: white;
+    }
+
+    .secondary-btn {
+        background: #ffffff;
+        color: #1d262d;
+        border: 1px solid #1d262d;
+        box-sizing: border-box;
+    }
+
+    .disabled {
+        cursor: not-allowed;
+    }
+}

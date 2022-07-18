@@ -1,0 +1,67 @@
+<!-- <p>login-page works!</p> -->
+<mat-drawer-container class="container">
+    <mat-drawer mode="side" opened="true" class="side-container">
+        <div>
+            <img src="../../../assets/icons/doconnect.png" style="height: 250px;width:400px" class="logo" alt="logo" />
+        </div>
+        <div>
+            <img src="../../../assets/icons/img.png" class="login-img" alt="logo" />
+        </div>
+    </mat-drawer>
+    <mat-drawer-content class="main-container">
+        <section class="login-container">
+            <h1 class="heading global-text--heading-4">{{ isLoggin?"Login":"Signup" }}</h1>
+            <section class="login-form-container">
+                <form [formGroup]="form" >
+                    <div class="row">
+                        <div class="column">
+                            <mat-label for="username">Username</mat-label>
+                            <mat-form-field class="username" appearance="fill">
+                                <input formControlName="username" matInput placeholder="Enter your username" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <mat-label for="password">Password</mat-label>
+                            <mat-form-field class="password" appearance="fill">
+                                <input type="password" formControlName="password" matInput placeholder="********" />
+                            </mat-form-field>
+                        </div>
+                
+                    </div>
+                    <div *ngIf="!isLoggin" class="row">
+                        <div class="column">
+                        
+                    <div>
+                        <input formControlName="role" type="radio" id="ADMIN" name="role" value="ADMIN" checked>
+                        <label for="ADMIN">ADMIN</label>
+                    </div>
+                    
+                    <div>
+                        <input formControlName="role" type="radio" id="USER" name="role" value="USER">
+                        <label for="USER">USER</label>
+                    </div>
+
+                        </div>
+                    </div>
+                            
+                    <div class="login-buttons">
+                    <app-button *ngIf="isLoggin" style="margin-right: 30px;" (btnClick)="login()" [text]="'Login'" [btnType]="'primary'"></app-button>
+                    <app-button *ngIf="!isLoggin" (btnClick)="signup()" [text]="'Signup'" [btnType]="'secondary'"></app-button>
+
+                    </div>
+                   <p *ngIf="isLoggin" >
+                    Create account.
+                    <button (click)="isLogginChange()" >Click here</button>
+                   </p>
+                    <p *ngIf="!isLoggin">
+                        Already have an account?
+                        <button (click)="isLogginChange()">Login here</button>
+                    </p>
+                    
+                </form>
+            </section>
+        </section>
+    </mat-drawer-content>
+</mat-drawer-container>

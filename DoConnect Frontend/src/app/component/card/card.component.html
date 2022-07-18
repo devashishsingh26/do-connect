@@ -1,0 +1,58 @@
+<div>
+    <mat-card  *ngIf = "roleADMIN()||!roleADMIN()&&content.approved===true" class="card-container mat-elevation-z0">
+        <mat-card-subtitle class="global-text--subtitle-1 flex flex--space-between">
+            <span>Q.: {{ content.id }}</span><span class="date-field">{{
+                content.createdOn | date: 'dd-MM-yyyy'
+                }}</span>
+        </mat-card-subtitle>
+        <mat-card-title (click) = "giveAnswer(content.id)"  class="global-text--subtitle global-text--ellipsis">Ques: {{ 
+            content.question
+            }}</mat-card-title>
+         
+            <div  *ngFor="let answer of content.answerList, let i = index " class="global-text--body global-text--ellipsis">
+
+        <mat-card-content  *ngIf = "roleADMIN()||!roleADMIN()&&answer.approved===true"  class="global-text--body global-text--ellipsis">
+            
+            
+            A{{i+1 }}. {{
+            answer.answer
+            }}
+            <button *ngIf="roleADMIN()"  (click) = "deleteAnswer(answer.id)" >Delete</button>
+            <button style="margin-left: 10px;" *ngIf="roleADMIN()" (click)="approveAnswer(answer.id)">Approve</button>
+
+        <p>comments</p>
+        <mat-card-content *ngFor="let comment of answer.answer.answerList, let i = index "
+            class="global-text--body global-text--ellipsis">C{{i+1 }}. {{
+            comment
+            }}
+
+
+        </mat-card-content>
+        
+        </mat-card-content>
+        </div>
+       
+         
+        <mat-card-footer class="action-button flex flex--row flex--space-between">
+            <div class="creator-info flex flex--space-between flex--align-center">
+                <!-- <img src="../../../assets/icons/profile-picture.svg" /> -->
+                <!-- <span class="global-text--subtitle">{{ content.assignee.name }}</span> -->
+            </div>
+  
+        </mat-card-footer>
+    </mat-card>
+
+            <section *ngIf = "giveanswer" class="main-container">
+                <form>
+                    <label style="font-size: 10px;" for="question">Answer:</label><br><br>
+                    <input style="width: 100%;font-size: larger;" type="text" id="updatequestion" name="updatequestion"
+                      [(ngModel)]="answer.answer"   ><br>
+                    <br>
+                    <button (click)="postAnswer()" >Post Answer</button>
+                </form>
+                <br>
+                <br>
+                <br>
+            </section>
+   
+</div>
